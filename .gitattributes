@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.heic binary
+*.hevc binary
+*.png binary

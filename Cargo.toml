@@ -1,0 +1,32 @@
+[package]
+name = "open-heic"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Pure-Rust, unsafe-free HEIC/HEIF still-image reader (HEVC) built for untrusted input"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/DailenG/open-heic"
+readme = "README.md"
+keywords = ["heic", "heif", "hevc", "image", "decoder"]
+categories = ["multimedia::images"]
+authors = ["Dailen Gunter"]
+exclude = ["/fuzz", "/.github", "/tests/fixtures/local"]
+
+[dependencies]
+rust_h265 = "0.1.0"
+
+[dev-dependencies]
+png = "0.18"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3

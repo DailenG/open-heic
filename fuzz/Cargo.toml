@@ -1,0 +1,36 @@
+[package]
+name = "open-heic-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+open-heic = { path = ".." }
+
+# Keep the fuzz crate out of the parent package's workspace.
+[workspace]
+
+[[bin]]
+name = "info"
+path = "fuzz_targets/info.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "decode"
+path = "fuzz_targets/decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "decode_thumbnail"
+path = "fuzz_targets/decode_thumbnail.rs"
+test = false
+doc = false
+bench = false
